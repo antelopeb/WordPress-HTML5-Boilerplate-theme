@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 	
-		<div id="container">	
-			<div id="content">
+		<section>	
 			
 <?php the_post(); ?>			
 			
@@ -18,7 +17,7 @@
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('Permalink to %s', 'wp_boilerplate'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
 					<div class="entry-meta">
@@ -43,7 +42,7 @@
 						<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'wp_boilerplate' ), __( '1 Comment', 'wp_boilerplate' ), __( '% Comments', 'wp_boilerplate' ) ) ?></span>
 						<?php edit_post_link( __( 'Edit', 'wp_boilerplate' ), "<span class=\"meta-sep\">|</span>\n\t\t\t\t\t\t<span class=\"edit-link\">", "</span>\n\t\t\t\t\t\n" ) ?>
 					</div><!-- #entry-utility -->	
-				</div><!-- #post-<?php the_ID(); ?> -->
+				</article><!-- #post-<?php the_ID(); ?> -->
 
 <?php endwhile; ?>			
 
@@ -54,8 +53,7 @@
 				</div><!-- #nav-below -->
 <?php } ?>			
 			
-			</div><!-- #content -->		
-		</div><!-- #container -->
+		</section><!-- #container -->
 		
 <?php get_sidebar(); ?>	
 <?php get_footer(); ?>

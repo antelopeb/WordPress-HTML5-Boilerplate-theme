@@ -1,18 +1,16 @@
 <?php get_header(); ?>
 	
-		<div id="container">	
-			<div id="content">
-			
+		<section>			
 <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if ( $total_pages > 1 ) { ?>
-				<div id="nav-above" class="navigation">
+				<nav class="navigation navigation-top">
 					<div class="nav-previous"><?php next_posts_link(__( '<span class="meta-nav">&laquo;</span> Older posts', 'wp_boilerplate' )) ?></div>
 					<div class="nav-next"><?php previous_posts_link(__( 'Newer posts <span class="meta-nav">&raquo;</span>', 'wp_boilerplate' )) ?></div>
-				</div><!-- #nav-above -->
+				</nav><!-- #nav-above -->
 <?php } ?>			
 			
 <?php while ( have_posts() ) : the_post() ?>
 	
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('Permalink to %s', 'wp_boilerplate'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 					
 					<div class="entry-meta">
@@ -36,21 +34,20 @@
 						<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'wp_boilerplate' ), __( '1 Comment', 'wp_boilerplate' ), __( '% Comments', 'wp_boilerplate' ) ) ?></span>
 						<?php edit_post_link( __( 'Edit', 'wp_boilerplate' ), "<span class=\"meta-sep\">|</span>\n\t\t\t\t\t\t<span class=\"edit-link\">", "</span>\n\t\t\t\t\t\n" ) ?>
 					</div><!-- #entry-utility -->	
-				</div><!-- #post-<?php the_ID(); ?> -->
+				</article><!-- #post-<?php the_ID(); ?> -->
 				
 <?php comments_template(); ?>				
 	
 <?php endwhile; ?>		
 
 <?php global $wp_query; $total_pages = $wp_query->max_num_pages; if ( $total_pages > 1 ) { ?>
-				<div id="nav-below" class="navigation">
+				<nav class="navigation navigation_below">
 					<div class="nav-previous"><?php next_posts_link(__( '<span class="meta-nav">&laquo;</span> Older posts', 'wp_boilerplate' )) ?></div>
 					<div class="nav-next"><?php previous_posts_link(__( 'Newer posts <span class="meta-nav">&raquo;</span>', 'wp_boilerplate' )) ?></div>
-				</div><!-- #nav-below -->
+				</nav><!-- #nav-below -->
 <?php } ?>			
 			
-			</div><!-- #content -->		
-		</div><!-- #container -->
+		</section>
 		
 <?php get_sidebar(); ?>	
 <?php get_footer(); ?>

@@ -1,8 +1,7 @@
 
 <?php get_header(); ?>
 	
-		<div id="container">	
-			<div id="content">
+		<section>	
 			
 <?php the_post(); ?>			
 			
@@ -20,7 +19,7 @@
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('Permalink to %s', 'wp_boilerplate'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 					
 					<div class="entry-summary">	
@@ -34,7 +33,7 @@
 <?php endif ?>
 					</div><!-- #entry-utility -->	
 					<hr />
-				</div><!-- #post-<?php the_ID(); ?> -->
+				</article><!-- #post-<?php the_ID(); ?> -->
 
 <?php endwhile; ?>			
 
@@ -45,8 +44,7 @@
 				</div><!-- #nav-below -->
 <?php } ?>			
 			
-			</div><!-- #content -->		
-		</div><!-- #container -->
+		</section><!-- #container -->
 		
 <?php get_sidebar(); ?>	
 <?php get_footer(); ?>

@@ -1,22 +1,25 @@
 <?php get_header(); ?>
 	
-		<div id="container">	
-			<div id="content">
-			
+		<section>			
 <?php the_post(); ?>
 
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 										
 					<div class="entry-content">
 <?php the_content(); ?>
 <?php wp_link_pages('before=<div class="page-link">' . __( 'Pages:', 'wp_boilerplate' ) . '&after=</div>') ?>
 					</div><!-- .entry-content -->
-					
-				</div><!-- #post-<?php the_ID(); ?> -->			
+                    
+                    <?php 
+                        // If comments are open or we have at least one comment, load up the comment template.
+                        if ( comments_open() || get_comments_number() ) :
+                            comments_template();
+                        endif;
+                    ?>
+				</article><!-- #post-<?php the_ID(); ?> -->			
 							
-			</div><!-- #content -->		
-		</div><!-- #container -->
+		</section>
 		
 <?php get_sidebar(); ?>	
 <?php get_footer(); ?>

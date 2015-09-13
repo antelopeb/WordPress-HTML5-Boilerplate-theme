@@ -1,13 +1,12 @@
 <?php get_header(); ?>
 	
-		<div id="container">	
-			<div id="content">
+		<section>	
 			
 <?php the_post(); ?>
 
 				<h1 class="page-title"><a href="<?php echo get_permalink($post->post_parent) ?>" title="<?php printf( __( 'Return to %s', 'wp_boilerplate' ), wp_specialchars( get_the_title($post->post_parent), 1 ) ) ?>" rev="attachment"><span class="meta-nav">&laquo; </span><?php echo get_the_title($post->post_parent) ?></a></h1>
 				
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<h2 class="entry-title"><?php the_title(); ?></h2>
 					
 					<div class="entry-meta">
@@ -55,12 +54,11 @@
 <?php endif; ?>
 <?php edit_post_link( __( 'Edit', 'wp_boilerplate' ), "\n\t\t\t\t\t<span class=\"edit-link\">", "</span>" ) ?>
 					</div><!-- .entry-utility -->													
-				</div><!-- #post-<?php the_ID(); ?> -->						
+				</article><!-- #post-<?php the_ID(); ?> -->						
 
 <?php comments_template(); ?>			
 			
-			</div><!-- #content -->		
-		</div><!-- #container -->
+		</section><!-- #container -->
 		
 <?php get_sidebar(); ?>	
 <?php get_footer(); ?>
